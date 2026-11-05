@@ -26,6 +26,11 @@ A DataCamp data-cleaning project using **Python**, **pandas**, and **NumPy**. Th
 ├── README.md
 ├── clean_bank_marketing.py
 ├── requirements.txt
+├── tests/
+│   └── test_clean_bank_marketing.py
+├── .github/
+│   └── workflows/
+│       └── tests.yml
 └── .gitignore
 ```
 
@@ -51,7 +56,16 @@ The script writes `client.csv`, `campaign.csv`, and `economics.csv` to the curre
 
 ## Validation
 
-The script checks the expected column names and order, confirms that each output has the same number of rows as the source, and prints the resulting shapes and data types.
+The script checks required input columns, expected output schemas, row counts, and valid contact dates. Automated tests use a small synthetic dataset so they do not require the original DataCamp data file. They cover output schemas, categorical/Boolean/date transformations, missing input files, and missing required columns.
+
+Run the tests locally:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pytest -q
+```
+
+GitHub Actions runs the same test suite on pushes to `main`, pull requests targeting `main`, and manual workflow dispatches. The source dataset is not needed for the automated tests.
 
 ## Tools
 
