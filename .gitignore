@@ -1,0 +1,16 @@
+# Source dataset (obtain from the original DataCamp project)
+bank_marketing.csv
+
+# Generated output tables
+client.csv
+campaign.csv
+economics.csv
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
